@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500&display=swap");
+
+.main {
+	width: 1200px;
+	border: 3px solid rgb(235, 228, 228);
+	margin: 20px auto;
+}
+.city-selection {
+	position: relative;
+	top: -20px;
+	left: 600px;
+}
+
+.early-pick {
+	margin-left: 150px;
+	margin-top: 20px;
+	color: darkgray;
+}
+button {
+	color: rgba(0, 110, 255, 0.603);
+	background-color: white;
+	font-weight: bold;
+}
+.search {
+	position: relative;
+	top: -15px;
+	left: 585px;
+}
+.current {
+	position: relative;
+	top: -15px;
+	left: 250px;
+}
+.choice {
+	font-weight: 700;
+	font-size: 24px;
+	color: darkgray;
+	font-style: italic;
+}
+.more {
+	font-size: smaller;
+	color: darkgray;
+	list-style: none;
+	text-align: left;
+}
+h3 {
+	margin-left: 150px;
+}
+.period {
+	border: 2px solid rgb(226, 224, 224);
+	margin: 10px;
+	text-align: center;
+	border-radius: 10px;
+	position: relative;
+	height: 100%;
+}
+.day {
+	color: rgba(0, 110, 255, 0.603);
+	font-weight: bold;
+}
+.day-of-the-week {
+	color: darkgray;
+}
+.degree {
+	font-size: 60px;
+	font-style: italic;
+	font-weight: bold;
+	color: darkgray;
+	position: absolute;
+	bottom: 1px;
+	right: 5px;
+}
+.precipitation {
+	color: darkgray;
+	font-style: italic;
+	font-weight: bold;
+}
+.period:nth-child(1) {
+	min-height: 255px;
+}
+
+.period:nth-child(2) {
+	min-height: 240px;
+}
+
+.period:nth-child(3) {
+	min-height: 225px;
+}
+
+.period:nth-child(4) {
+	min-height: 210px;
+}
+
+.period:nth-child(5) {
+	min-height: 195px;
+}
+
+.period:nth-child(6) {
+	min-height: 180px;
+}
+.source-on-github {
+	text-align: center;
+}
