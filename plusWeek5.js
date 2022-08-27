@@ -93,3 +93,24 @@ function currentLocation(event) {
 
 let buttonCurrent = document.querySelector("#buttonCurrent");
 buttonCurrent.addEventListener("click", currentLocation);
+
+function displayFahrenheitTemperature(event) {
+	event.preventDefault();
+	let temperatureUnitElement = document.querySelector("#temperature");
+	let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+	temperatureUnitElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displaycelsiusTemperature(event) {
+	event.preventDefault();
+	let temperatureUnitElement = document.querySelector("#temperature");
+	temperatureUnitElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displaycelsiusTemperature);
+
+let celsiusTemperature = null;

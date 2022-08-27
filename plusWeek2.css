@@ -71,6 +71,10 @@ h3 {
 	bottom: 1px;
 	right: 5px;
 }
+.temperature-unit {
+	position: relative;
+	left: -30px;
+}
 .precipitation {
 	color: darkgray;
 	font-style: italic;
