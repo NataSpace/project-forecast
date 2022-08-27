@@ -36,6 +36,7 @@ button {
 	font-size: 24px;
 	color: darkgray;
 	font-style: italic;
+	text-transform: capitalize;
 }
 .more {
 	font-size: smaller;
