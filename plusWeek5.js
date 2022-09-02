@@ -22,6 +22,55 @@ console.log(formatDate(currentTime));
 let h3 = document.querySelector("h3");
 h3.innerHTML = formatDate(currentTime);
 
+function formateDay(timesTamp) {
+	let date = new Date(timesTamp * 1000);
+	let day = date.getDay();
+	let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+	return days[day];
+}
+
+function displayForecast(response) {
+	let forecast = response.data.daily;
+	console.log(response.data.daily);
+	let forecastElement = document.querySelector("#forecast");
+	let forecastHTML = `<div class="row">`;
+	let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed"];
+	forecast.forEach(function (forecastDay, index) {
+		if (index < 5) {
+			forecastHTML =
+				forecastHTML +
+				`
+	    <div class="col">
+		    <div class="day-of-the-week">${formateDay(forecastDay.dt)}</div>
+			<div class="precipitation">${forecastDay.weather[0].main}</div>
+			<div class="row">
+				<div class="col">
+					<img
+					src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+					alt="Sunny"
+					width="100px"
+					class="img-sun"
+					/>
+				</div>
+				<div class="col"><span class="degree">${Math.round(forecastDay.temp.day)}</span></div>
+			</div>
+		</div>
+	`;
+		}
+	});
+
+	forecastHTML = forecastHTML + `</div>`;
+	forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+	console.log(coordinates);
+	let apiKey = "fe8644e6ab0b8f7fd55fb25e70f71e7b";
+	let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+	axios.get(apiUrl).then(displayForecast);
+}
+
 function search(event) {
 	event.preventDefault();
 	let searchInput = document.querySelector("#search-text-input");
@@ -48,23 +97,22 @@ function showTemperature(response) {
 	iconElement.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 	console.log(response.data.weather[0].icon);
 	celsiusTemperature = response.data.main.temp;
+
+	getForecast(response.data.coord);
 }
 function showWind(response) {
-	console.log(response.data);
 	let windElement = document.querySelector("#wind");
 	console.log(response.data.wind.speed);
 	let wind = document.querySelector(".wind");
 	wind.innerHTML = `Wind: ${Math.round(response.data.wind.speed)} km/h`;
 }
 function showHumidity(response) {
-	console.log(response.data);
 	let humidityElement = document.querySelector("#humidity");
 	console.log(response.data.main.humidity);
 	let humidity = document.querySelector(".humidity");
 	humidity.innerHTML = `Humidity: ${Math.round(response.data.main.humidity)} %`;
 }
 function showDescription(response) {
-	console.log(response.data);
 	let descriptionElement = document.querySelector("#description");
 	console.log(response.data.weather[0].main);
 	let description = document.querySelector(".precipitation");

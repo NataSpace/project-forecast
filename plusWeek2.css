@@ -44,8 +44,12 @@ button {
 	list-style: none;
 	text-align: left;
 }
-h3 {
+.current-time {
 	margin-left: 150px;
+	font-weight: 700;
+	font-size: 24px;
+	color: darkgray;
+	font-style: italic;
 }
 .period {
 	border: 2px solid rgb(226, 224, 224);
@@ -67,13 +71,11 @@ h3 {
 	font-style: italic;
 	font-weight: bold;
 	color: darkgray;
-	position: absolute;
-	bottom: 1px;
-	right: 5px;
 }
 .temperature-unit {
 	position: relative;
-	left: -30px;
+	left: 60px;
+	bottom: 70px;
 }
 .precipitation {
 	color: darkgray;
