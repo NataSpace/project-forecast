@@ -77,13 +77,21 @@ function search(event) {
 	console.log(searchInput.value);
 	let choice = document.querySelector(".choice");
 	choice.innerHTML = `${searchInput.value}`;
+
+	searchCity(searchInput.value);
+}
+
+function searchCity(city) {
 	let apiKey = "fe8644e6ab0b8f7fd55fb25e70f71e7b";
-	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
+	let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 	axios.get(apiUrl).then(showTemperature);
 	axios.get(apiUrl).then(showWind);
 	axios.get(apiUrl).then(showHumidity);
 	axios.get(apiUrl).then(showDescription);
 }
+
+searchCity("Dnipro");
+
 let buttonSearch = document.querySelector("#buttonSearch");
 buttonSearch.addEventListener("click", search);
 
